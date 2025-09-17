@@ -21,7 +21,7 @@ console.log(miArroz.precioConIVA());
 let n = 22.1234;
 console.log(n.toFixed(2));
 
-Number.prototype.esPar=function(){
-    return this%2===0
-}
-console.log(n.)
+Number.prototype.esPar = function () {
+  return this % 2 === 0;
+};
+console.log(n);

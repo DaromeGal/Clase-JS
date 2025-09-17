@@ -1,23 +1,23 @@
 let miInquilino = {
-  nombre: "Lucas",
+  nombre: 'Lucas',
   edad: 20,
   esEstudiante: true,
   direccion: {
-    calle: "Calle Falsa 123",
-    ciudad: "Springfield",
-    pais: "USA",
+    calle: 'Calle Falsa 123',
+    ciudad: 'Springfield',
+    pais: 'USA',
   },
 };
 console.log(miInquilino.nombre);
-console.log(miInquilino["nombre"]);
+console.log(miInquilino['nombre']);
 console.log(miInquilino.direccion.calle);
 
 let c = {
-  nombre: "Ana",
+  nombre: 'Ana',
 };
 let d = c;
 
-d.nombre = "Manolo";
+d.nombre = 'Manolo';
 
 console.log(c.nombre);
 console.log(d.nombre);
