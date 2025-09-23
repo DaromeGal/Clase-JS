@@ -20,6 +20,10 @@ let sumar1 = (num1, num2) => num1 + num2;
 
 const data = [3, 4, 5, 6, -5, 3];
 
-// let soloPositivos = (num) => num >=0
+// let soloPositivos = (num) => num >=
 
-console.log(data.filter((num) => num >= 0));
+const soloPositivos = (num) => num >= 0;
+
+let dataPositive = data.filter(soloPositivos);
+
+console.log(dataPositive);
