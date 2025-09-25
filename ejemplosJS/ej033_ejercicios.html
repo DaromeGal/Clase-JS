@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Rick and morti con promesas async await</title>
+</head>
+<body>
+    <button id="btn">Obtener Rick And Morty con Promesas (async await)</button >
+    <div id="output"></div>
+    
+    <script>
+        const TOTAL_RAM= 826
+        const getRandomNum= () => Math.floor(Math.random()* TOTAL_RAM)+1
+
+document.getElementById('btn').addEventListener('click', async()=> {
+    const randomNUm= getRandomNum()
+    const response= await fetch('https://rickandmortyapi.com/api/character/'+randomNUm)
+    const data= await response.json()
+        document.getElementById('output').innerHTML= `
+        <h2>${data.name}</h2>
+        <img src="${data.image}"/>
+        `
+})
+
+
+    </script>
+</body>
+</html>
