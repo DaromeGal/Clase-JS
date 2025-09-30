@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Rick and morti con promesas then</title>
+</head>
+<body>
+    <button id="btn">Obtener Rick And Morty con Promesas (then)</button >
+    <div id="output"></div>
+    
+    <script>
+        const TOTAL_RAM= 826
+        const getRandomNum= () => Math.floor(Math.random()* TOTAL_RAM)+1
+
+document.getElementById('btn').addEventListener('click',()=> {
+    const randomNUm= getRandomNum()
+    fetch('https://rickandmortyapi.com/api/character/'+randomNUm)
+    .then(response => response.json())
+    .then(data =>{
+        document.getElementById('output').innerHTML= `
+        <h2>${data.name}</h2>
+        <img src="${data.image}"/>
+        `
+    })
+    .catch(error=> {
+    document.getElementById('output').textContent='Error al obtener el Rick ANd Morti'
+})
+})
+
+
+    </script>
+</body>
+</html>
