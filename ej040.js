@@ -32,5 +32,7 @@ let user={
 }
 let addressStreet= user.address?.street
 
-let {address:{street}}=user 
-console.log(street)
+//let {address:{street}}=user 
+console.log(addressStreet)
+
+//Operador 

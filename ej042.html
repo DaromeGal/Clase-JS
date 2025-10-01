@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardar Información</title>
+       <style>
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .save button {
+            margin: 4px 2px;
+            padding: 10px 18px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: none;
+            background: #1976d2;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .save button:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Guardar información</h2>
+    <div>
+        <input id="texto" type="text" placeholder="Escribe algo">
+        <span class="save">
+            <button id="btn">Guardar en Local Storage</button>
+            <button id="btn2">Guardar en Session Storage</button>
+            <button id="btn3">Guardar en Cookies</button>
+        </span>
+    </div>
+    <div>
+        <div>Local Storage:</div>
+        <div id="out1"></div>
+        <div>Session Storage:</div>
+        <div id="out2"></div>
+        <div>Cookies:</div>
+        <div id="out3"></div>
+    </div>
+    <script>
+
+        // Puedes añadir esta función dentro de tu <script> para obtener el valor de una cookie por nombre
+function getCookie(nombre) {
+    const cookies = document.cookie.split('; ');
+    for (let cookie of cookies) {
+        const [key, valor] = cookie.split('=');
+        if (key === nombre) {
+            return decodeURIComponent(valor);
+        }
+    }
+    return null;
+}
+        const input = document.getElementById('texto');
+        const out1 = document.getElementById('out1');
+        const out2 = document.getElementById('out2');
+        const out3 = document.getElementById('out3');
+
+
+            out1.textContent= localStorage.getItem('demoText') ??  'vacio'
+            out2.textContent= sessionStorage.getItem('demoText') ?? 'vacio'
+            out3.textContent=getCookie('demoText') ?? 'vacio'
+
+
+
+
+
+            document.getElementById('btn').addEventListener('click', () => {
+                const value= input.value
+                localStorage.setItem('demoText', value)
+
+                out1.textContent=value
+            })
+            document.getElementById('btn2').addEventListener('click', () => {
+                const value= input.value
+                sessionStorage.setItem('demoText', value)
+
+                out2.textContent=value
+            })
+            document.getElementById('btn3').addEventListener('click', () => {
+                const value= input.value
+            document.cookie = `demoText=${encodeURIComponent(value)}; path=/`;
+                out3.textContent=value
+            })
+           
+    </script>
+</body>
+</html>
